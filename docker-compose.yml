@@ -1,0 +1,48 @@
+version: "3.7"
+
+# Currency converter backend
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - ./database:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - converter-network
+    restart: always
+  converter_be:
+    container_name: converter_be
+    build:
+      context: .
+      dockerfile: ./currency-conversion-api/Dockerfile
+    ports:
+      - 8081:8081
+    networks:
+      - converter-network
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  # Currency converter frontend
+  converter_fe:
+    container_name: "converter_fe"
+    build:
+      context: .
+      dockerfile: ./currency-conversion-ui/Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - converter-network
+    environment:
+      CONVERTER_BE_URL: http://converter_be:8081/
+    depends_on:
+      - converter_be
+
+networks:
+  converter-network:
+    driver: bridge
