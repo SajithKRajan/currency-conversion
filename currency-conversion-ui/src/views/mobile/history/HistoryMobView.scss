@@ -1,0 +1,38 @@
+.history-mob.main-panel {
+    background: #FFFFFF;
+    box-shadow: none;
+
+    .p-panel-content {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .p-card-title {
+        color: var(--dark);
+        padding: 1.25rem;
+    }
+
+    .form-container {
+        box-shadow: none !important;
+    }
+
+    .p-card-body {
+        padding: none !important;
+    }
+
+    .list-card-item {
+        border: 1px solid #EFF0F6 !important;
+        background: #F9F9F9;
+        border-radius: 12px;
+        color: var(--dark) !important;
+
+        .p-tag.p-component {
+            width: 1rem;
+            height: 1rem;
+            margin-top: 6px;
+            border-radius: 50%;
+        }
+    }
+
+
+}

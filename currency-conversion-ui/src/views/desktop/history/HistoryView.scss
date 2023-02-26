@@ -1,0 +1,27 @@
+.history.main-panel {
+    background: #FFFFFF;
+    box-shadow: none;
+
+    .p-panel-content {
+        border: none !important;
+    }
+
+    .p-card-title {
+        color: var(--dark);
+    }
+
+    .form-container {
+        box-shadow: none !important;
+    }
+
+    .p-tag.p-tag-info {
+        background-color: #ffffff;
+        color: #3B82F6;
+    }
+
+    .p-tag.p-tag-success {
+        background-color: #ffffff;
+        color: #22C55E;
+    }
+
+}
